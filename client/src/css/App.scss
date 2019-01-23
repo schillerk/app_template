@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+@font-face {
+  font-family: 'ColfaxWebMediumAlt';
+  src: url('../assets/fonts/ColfaxWebMediumAlt/ColfaxWebMediumAlt.woff2') format('truetype');
+}
+
+@font-face {
+  font-family: 'ColfaxWebRegularAlt';
+  src: url('../assets/fonts/ColfaxWebRegularAlt/ColfaxWebRegularAlt.woff2') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  font-family: 'ColfaxWebRegularAlt';
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+}
+
+$lightest-grey: rgba(0,0,0,.1);
+$lighter-grey: rgba(0,0,0,.15);
+$light-grey: rgba(0,0,0,.2);
+$grey: rgba(0,0,0,.4);
+$dark-grey: rgba(0,0,0,.6);
+$darkest-grey: rgba(0,0,0,.8);
+
+$off-white: #FCFEFE;
+$offer-white: #CDD9D9;
+
+$lighter-blue: #F5FAFA;
+$light-blue: #EBF5F6;
+$blue: #E0F1F0;
+$dark-blue: #276ee3;
+$darker-blue: #122d5a;
+
+$border-radius-1: 2px;
+$border-radius-2: 4px;
+
+$spacing-1: .5rem;
+$spacing-2: 1rem;
+$spacing-3: 1.8rem;
+$spacing-4: 4rem;
+
+$breakpoint: 855px;
+$body-width-0: 405px;
+$body-width-1: 655px;
+$body-width-2: 855px;
+
+@mixin border-radius() {
+  border-radius: 2px;
+}
+
+@mixin border-1 {
+  @include border-radius;
+  border: 1px solid $lightest-grey;
+}
+
+@mixin elevation-1 {
+  box-shadow: 0px 1px 2px $light-grey;
+}
+
+@mixin elevation-2 {
+  box-shadow: 0px 2px 4px $light-grey;
+}
+
+@mixin elevation-3 {
+  box-shadow: 0px 4px 8px $light-grey;
+}
+
+@mixin elevation-4 {
+  box-shadow: 0px 8px 16px $light-grey;
+}
+
+@mixin elevation-5 {
+  box-shadow: 0px 16px 32px $light-grey;
+}
+
+@mixin transition($property) {
+  transition: $property .15s cubic-bezier(.645, .045, .355, 1);
+}
+
+.auto-options {
+  position: absolute;
+  @include elevation-3;
+  @include border-1;
+  background: white;
+  &__item {
+    padding: 8px;
+    cursor: pointer;
+    &--focused {
+      background: $lightest-grey;
+    }
+    &:hover {
+      background: $lightest-grey;
+    }
+  }
+}
+
+.header {
+  &__item {
+    @include transition(border-color);
+    margin-right: .6em;
+    cursor: pointer;
+    border-bottom: 1px solid $light-grey;
+    &:hover {
+      border-color: $dark-grey;
+    }
+  }
+}
+
+.pill {
+  @include border-1;
+  margin: 5px;
+  padding: 5px;
+  &__label {
+    padding: 5px;
+  }
+  &__delete {
+    @include transition(background-color);
+    border-left: 1px solid $lightest-grey;
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+      background: $lighter-grey;
+    }
+  }
+}
+
+.tag {
+  margin-right: .3em;
+  cursor: pointer;
+  @include transition(color);
+  color: $dark-blue;
+  &:hover {
+    color: $darker-blue;
+  }
+}
+
+.h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: .3em;
+}
+
+.card {
+  @include border-1;
+  @include elevation-2;
+  @include transition(box-shadow)
+}
+
+.row {
+  display: inline-flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  &__right {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  &--spaced {
+    & > * {
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.text-input {
+  @include border-radius;
+  height: 36px;
+  flex-grow: 1;
+  padding-left: 8px;
+  border: 1px solid rgba(0,0,0,.25);
+  text-overflow: ellipsis;
+  transition: .3s ease-out;
+  outline: none;
+  &:hover,
+  &:focus {
+    border: 1px solid rgba(64, 170, 240, .7);
+  }
+  &:focus {
+    box-shadow: 0 0 5px rgba(64, 170, 240, .7);
+  }
+}
+
+.button {
+  @include border-radius;
+  padding: 0px 12px;
+  height: 36px;
+  text-transform: uppercase;
+  transition: .3s box-shadow ease-out;
+  @include elevation-1;
+  &:hover {
+    cursor: pointer;
+    @include elevation-3;
+  }
+}

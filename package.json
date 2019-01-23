@@ -4,15 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "node-sass": "^4.9.2",
     "nodemon": "^1.18.3",
-    "password-generator": "^2.2.0"
+    "password-generator": "^2.2.0",
+    "sqlite3": "^4.0.4",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "node index.js",
     "heroku-postbuild": "cd client && yarn && yarn run build",
-    "build-css": "node-sass --include-path scss client/src/App.scss client/src/App.css",
+    "build-css": "node-sass --include-path scss client/src/css/App.scss client/src/css/App.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   }
 }
