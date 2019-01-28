@@ -29,6 +29,7 @@ class SinglePost extends Component {
 		return this.state.data.post_id &&
 			<Post
 				item={this.state.data} 
+				
 			/>
 	}
 
